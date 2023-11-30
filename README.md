@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+![Alt text](<Screenshot 2023-11-30 at 8.58.34 PM.png>)
+
 ## Technologies Used
 
 - Shadcn
