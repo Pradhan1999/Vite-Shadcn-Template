@@ -9,11 +9,10 @@ import { UriEndPoint } from "../interface/index";
 
 // Interfaces
 
-export const hostname = () => 'http://localhost:5000';
+export const hostname = () => "http://localhost:8000";
 // export const hostname = () => "https://dummyjson.com";
 
 export const cookies = new Cookies();
-
 
 const hostUrl = hostname();
 interface PathParams {
@@ -65,6 +64,7 @@ export const makeUrl = (
 //   // }
 //   // return headers;
 // });
+
 export const getDefaultHeaders = () => {
   const headers: any = {};
   if (localStorage.getItem("authorization")) {
@@ -78,7 +78,6 @@ export const getDefaultCookies = () => ({
   "Content-Type": "application/json",
   // "Content-Type": "application/x-www-form-urlencoded",
 });
-
 
 const clearLocalStorage = () => {
   window.localStorage.clear();

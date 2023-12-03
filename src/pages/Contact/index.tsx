@@ -13,7 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { currentUser } from "@/services/auth";
 import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
@@ -31,57 +30,53 @@ export function Contact() {
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     console.log("data", data);
-
-    currentUser({
-      body: { productName: data.productName, price: data.price },
-    })
-      .then((res) => console.log("res", res))
-      .catch((err) => console.log("err", err));
   }
 
   return (
-    <div className="border border-red-500 h-[80vh]">
-      <div className="flex justify-center items-center m-20">
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-4 w-[400px]"
-          >
-            <FormField
-              control={form.control}
-              name="productName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Product Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Product Name" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
-                      This is your public display name.
-                    </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="price"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Price</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Price" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
-                      This is your public display name.
-                    </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit">Submit</Button>
-          </form>
-        </Form>
+    <div className="h-[80vh] bg-sky-200 pt-20">
+      <div className="flex justify-center items-center">
+        <div className="border border-gray-500 p-5">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4 w-[400px]"
+            >
+              <FormField
+                control={form.control}
+                name="productName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Product Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Product Name" {...field} />
+                    </FormControl>
+                    {/* <FormDescription>
+                        This is your public display name.
+                      </FormDescription> */}
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Price</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Price" {...field} />
+                    </FormControl>
+                    {/* <FormDescription>
+                        This is your public display name.
+                      </FormDescription> */}
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
+        </div>
       </div>
     </div>
   );
