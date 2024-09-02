@@ -1,10 +1,10 @@
 // import { Button } from "@/components/ui/button";
 // import { useAddProduct } from "@/hooks/products/mutation";
-// import { useGetAllProducts } from "@/hooks/products/query";
+import { useGetAllProducts } from "@/hooks/products/query";
 
 const About = () => {
-  // const { data: allProducts } = useGetAllProducts();
-  // console.log("allProducts", allProducts);
+  const { data: allProducts } = useGetAllProducts();
+  console.log("allProducts", allProducts);
 
   // const body = {
   //   tittle: "Macbook",
